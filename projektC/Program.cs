@@ -34,7 +34,9 @@ namespace projectC
         {
             Console.WriteLine("                                               WELCOME IN MY GAME!");
             Console.WriteLine("                                         ___________________________________");
-            Console.WriteLine("Rules: \n 1. Arrange numbers from 0-8 by press the arrow keys \n \n");
+            Console.WriteLine("Rules:");
+            Console.WriteLine("1. Arrange numbers from 0 - 8 by press the arrow keys");
+            Console.WriteLine("2. You win when your board looks like \n \n | 0 | | 1 | | 2 |\n | 3 | | 4 | | 5 | \n | 6 | | 7 | | 8 | \n ");
             Console.WriteLine("Press [0] key to back");
 
             while (flaga)
@@ -91,8 +93,6 @@ namespace projectC
         {
             StartMenu();
             StartGame();
-
         }
-       
     }
 }

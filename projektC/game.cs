@@ -9,7 +9,6 @@ namespace projectC
     class Game
     {
         public int[,] arr = new int[3, 3]; //plansza 3x3
-        public int i = 1, j = 1;     //pozycja zera [0]
         public int temp;
   
         public void CreateArray()
@@ -39,22 +38,30 @@ namespace projectC
             {
                 Console.Clear();
                 Console.WriteLine("You win!");
+                Console.WriteLine("Press [0] or Escape to exit");
+                
+                ConsoleKeyInfo endKey;
+                endKey = Console.ReadKey();
+                switch (endKey.Key)
+                {
+                    case ConsoleKey.D0: //[0] QUIT
+                    case ConsoleKey.Escape:
+                        Environment.Exit(0);
+                        break;
+                }
             }
-
         }
 
         public void PrintArray()
         {
             Console.Clear();
-            //Console.WriteLine("\n\n\t\t++==+==+==+==+==++==+==+==+==+==++==+==+==+==+==++\n");
-            //Console.WriteLine("==================================================\n");
-            //Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("==================================================\n");
+            Console.ForegroundColor = ConsoleColor.Red;
 
             for (int i = 0; i < 3; i++) //row
             {
                 for (int j = 0; j < 3; j++) //column
                 {
-
                     if (arr[i, j] == 0)
                     {
                         Console.ForegroundColor = ConsoleColor.Green;
@@ -66,22 +73,18 @@ namespace projectC
                         Console.ForegroundColor = ConsoleColor.Red;
                         Console.Write($"  |   {arr[i, j]}  |");
                     }
-
-
                 }
                 Console.WriteLine("\n");
             }
             Console.ForegroundColor = ConsoleColor.White;
-            //Console.WriteLine("==================================================");
+            Console.WriteLine("==================================================");
             Console.WriteLine("[0] - QUIT");
-
         }
 
         public void CheckKey()
         {
             try
             {
-
                 for (int i = 0; i < 3; i++) //row
                 {
                     for (int j = 0; j < 3; j++) //column
@@ -97,7 +100,7 @@ namespace projectC
 
                                     Console.Clear();
                                     temp = arr[i, j];
-                                    arr[i, j] = arr[i, j - 1]; //zmiana kolumny o jedna w lewo
+                                    arr[i, j] = arr[i, j - 1]; //left one column
                                     arr[i, j - 1] = temp;
                                     j = j - 1;
                                     break;
@@ -105,7 +108,7 @@ namespace projectC
                                 case ConsoleKey.UpArrow:  
                                     Console.Clear();
                                     temp = arr[i, j];
-                                    arr[i, j] = arr[i - 1, j]; //zmiana wiersza o jeden wyżej
+                                    arr[i, j] = arr[i - 1, j]; //higher one row
                                     arr[i - 1, j] = temp;
                                     i = i - 1;
                                     break;
@@ -113,7 +116,7 @@ namespace projectC
                                 case ConsoleKey.DownArrow: 
                                     Console.Clear();
                                     temp = arr[i, j];
-                                    arr[i, j] = arr[i + 1, j]; //zmiana wiersza o jeden niżej
+                                    arr[i, j] = arr[i + 1, j]; //lower one row
                                     arr[i + 1, j] = temp;
                                     i = i + 1;
                                     break;
@@ -121,7 +124,7 @@ namespace projectC
                                 case ConsoleKey.RightArrow: 
                                     Console.Clear();
                                     temp = arr[i, j];
-                                    arr[i, j] = arr[i, j + 1]; //zmiana kolumny o jedą w prawo
+                                    arr[i, j] = arr[i, j + 1]; //right one column
                                     arr[i, j + 1] = temp;
                                     j = j + 1;
                                     break;
@@ -142,9 +145,12 @@ namespace projectC
                                     }
                                     break;
                             }
-
                             PrintArray();
+                            Check();        // 0,1,2 !!
+                                            // 3,4,5
+                                            // 6,7,8
                             CheckKey();
+                            
                         }
                     }
                 }
