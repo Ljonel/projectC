@@ -4,10 +4,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace projektC
+namespace projectC
 {
     class Program
     {
+        //========================STARTING GAME========================
+        public static void StartGame()
+        {
+            Game RoundGame = new Game();
+            RoundGame.CreateArray();
+            RoundGame.PrintArray();
+            RoundGame.CheckKey();
+            RoundGame.PrintArray();
+            Console.ReadKey();
+        }
+        //========================STARTING GAME========================
+
         public static void Nav()
         {
             Console.Clear();
@@ -17,11 +29,7 @@ namespace projektC
             Console.WriteLine("[2] - GAME RULES");
             Console.WriteLine("[0] - QUIT");
         }
-        public static void StartGame()
-        {
-           
 
-        }
         public static void Rules(bool flaga = true)
         {
             Console.WriteLine("                                               WELCOME IN MY GAME!");
@@ -43,16 +51,14 @@ namespace projektC
                     Console.WriteLine("Please use correct key");
                 }
             }
-
-
         }
 
         public static void StartMenu()
         {
             Console.Title = "Damian Cygan Project";
             bool flaga = true;
-            bool graflaga = true;
-            while (graflaga)
+            bool gameflaga = true;
+            while (gameflaga)
             {
                 Nav();
                 ConsoleKeyInfo menuKey = Console.ReadKey();
@@ -61,7 +67,7 @@ namespace projektC
                     case ConsoleKey.D1:
                         Console.Clear();
                         StartGame();
-                        //graflaga = false;
+                        //gameflaga = false;
                         break;
                     case ConsoleKey.D2:
                         Console.Clear();
@@ -84,6 +90,9 @@ namespace projektC
         static void Main(string[] args)
         {
             StartMenu();
+            StartGame();
+
         }
+       
     }
 }
