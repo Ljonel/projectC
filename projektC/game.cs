@@ -79,6 +79,9 @@ namespace projectC
 
         public void CheckKey()
         {
+            try
+            {
+
                 for (int i = 0; i < 3; i++) //row
                 {
                     for (int j = 0; j < 3; j++) //column
@@ -145,11 +148,11 @@ namespace projectC
                         }
                     }
                 }
-            
-            /*catch (Exception)
+            }
+            catch (Exception)
             {
                 Console.WriteLine("You can't press key like that");
-            }*/
+            }
 
         }
 
