@@ -8,18 +8,7 @@ namespace projectC
 {
     class Program
     {
-        //========================STARTING GAME========================
-        public static void StartGame()
-        {
-            Game RoundGame = new Game();
-            RoundGame.CreateArray();
-            RoundGame.PrintArray();
-            RoundGame.CheckKey();
-            RoundGame.PrintArray();
-            Console.ReadKey();
-        }
-        //========================STARTING GAME========================
-
+        
         public static void Nav()
         {
             Console.Clear();
@@ -89,10 +78,22 @@ namespace projectC
                 }
             }
         }
+
+        //========================STARTING GAME========================
+        public static void StartGame()
+        {
+            Game RoundGame = new Game();
+            RoundGame.chooseLevel();
+            RoundGame.PrintArray();
+            RoundGame.CheckKey();
+            RoundGame.PrintArray();
+            Console.ReadKey();
+
+        }
+        //========================STARTING GAME========================
         static void Main(string[] args)
         {
             StartMenu();
-            StartGame();
         }
     }
 }
