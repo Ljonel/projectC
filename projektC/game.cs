@@ -110,7 +110,7 @@ namespace projectC
                     Console.WriteLine("Level - Easy");
                     break;
                 case Level.medium:
-                    Console.WriteLine("Level - Medium");
+                    Console.WriteLine("Level - Medium");            //Levels
                     break;
                 case Level.hard:
                     Console.WriteLine("Level - Hard");
@@ -143,7 +143,7 @@ namespace projectC
             Console.WriteLine("[0] - QUIT");
             Console.WriteLine("Score: " + count);
         }
-        public void Check()
+        public void Check()  //checking if WIN
         {
             if (arr[0, 0] == 0 &&
             arr[0, 1] == 1 &&
